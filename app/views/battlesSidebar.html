@@ -1,0 +1,28 @@
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+    <md-toolbar class="md-theme-light">
+        <h2 class="md-toolbar-tools">Add battle </h2>
+        <h1 class="md-toolbar-tools">{{sideVm.title}}</h1>
+    </md-toolbar>
+    <md-content layout-padding>
+        <form>
+            <md-input-container>
+                <label for="btlInput">Battle name</label>
+                <input type="text" id="btlInput"
+                       ng-model="sideVm.title" md-autofocus>
+            </md-input-container>
+            <md-input-container>
+                <label for="datetime">Date</label>
+                <input mdc-datetime-picker="" date="true" time="true" type="text" id="datetime"
+                       placeholder="Date" min-date="date" ng-model="sideVm.scheduleTime" class=" md-input">
+            </md-input-container>
+        </form>
+        <div layout="row">
+            <md-button ng-click="sideVm.sendBattle()" class="md-primary md-button">
+                Add Battle
+            </md-button>
+            <md-button ng-click="sideVm.close('left')" class="md-button">
+                Close Sidenav Right
+            </md-button>
+        </div>
+    </md-content>
+</md-sidenav>

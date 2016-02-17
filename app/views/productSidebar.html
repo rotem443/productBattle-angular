@@ -1,0 +1,60 @@
+<md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
+    <md-toolbar class="md-theme-light">
+        <h1 class="md-toolbar-tools">Add Product</h1>
+    </md-toolbar>
+    <md-content layout-padding>
+        <form>
+            <md-input-container>
+                <label for="testInput">Product name</label>
+                <input type="text" id="testInput"
+                       ng-model="sideVm.battleName" md-autofocus>
+            </md-input-container>
+
+            <md-input-container>
+                <label for="priceInput">Price</label>
+                <input type="number" id="priceInput"
+                       ng-model="sideVm.battlePrice" >
+            </md-input-container>
+
+            <md-input-container>
+                <label for="urlInput"> URL</label>
+                <input type="text" id="urlInput"
+                       ng-model="sideVm.battleURL" >
+            </md-input-container>
+
+            <md-input-container>
+                <label for="imageInput">Image URL</label>
+                <input type="text" id="imageInput"
+                       ng-model="sideVm.battleImageURL" >
+            </md-input-container>
+
+            <md-input-container>
+                <label for="descriptinInput">Description</label>
+                <textarea ng-model="sideVm.battleDescription" id="descriptinInput"
+                          rows="5">
+                </textarea>
+            </md-input-container>
+
+            <md-input-container>
+                <label for="detailsInput">Details</label>
+                <textarea ng-model="sideVm.battleDetails"
+                          id="detailsInput"
+                          rows="5">
+                </textarea>
+            </md-input-container>
+            <md-input-container>
+                <label for="fakeProduct">Fake Votes</label>
+                <input type="number" id="fakeProduct"
+                       ng-model="sideVm.fakeVotesProduct">
+            </md-input-container>
+        </form>
+        <div layout="row">
+            <md-button ng-click="sideVm.send()" class="md-primary md-button">
+                Add Product
+            </md-button>
+            <md-button ng-click="sideVm.close('right')" class="md-button">
+                Close
+            </md-button>
+        </div>
+    </md-content>
+</md-sidenav>

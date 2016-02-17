@@ -1,0 +1,32 @@
+<md-dialog aria-label="Mango (Fruit)"  ng-cloak>
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>Add Battle</h2>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div class="md-dialog-content">
+        <div layout-gt-xs="row">
+          <md-input-container class="md-block" flex-gt-xs style="margin-top:0;">
+            <label>Company (Disabled)</label>
+            <input ng-model="user.company">
+          </md-input-container>
+          <!--<md-datepicker ng-model="user.submissionDate" md-placeholder="Enter date">-->
+          <!--</md-datepicker>-->
+          <input mdc-datetime-picker="" date="true" time="true" type="text" id="datetime"
+                 placeholder="Date" min-date="date" ng-model="dateTime" class=" md-input">
+        </div>
+      </div>
+    </md-dialog-content>
+    <md-dialog-actions layout="row">
+      <span flex></span>
+      <md-button ng-click="addBattleVm.cancel()">
+       Cancel
+      </md-button>
+      <md-button ng-click="answer('useful')" style="margin-right:20px;">
+        Add Battle
+      </md-button>
+    </md-dialog-actions>
+  </form>
+</md-dialog>
