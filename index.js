@@ -11,7 +11,7 @@ app.set('views', __dirname + '/app');
 //app.set('view engine', 'ejs');
 
 app.get('/', function(request, response) {
-  response.sendFile(path.join(__dirname + '/app/index.html'));
+  response.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.listen(app.get('port'), function() {
