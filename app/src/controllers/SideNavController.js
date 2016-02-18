@@ -89,7 +89,7 @@ angular.module('ProductBattleApp').
                         "shop_category": "Sports & Outdoors"
                     },
                     "second_product": {
-                        "product_id": vm.selectedProducts[1].id,
+
                         "price": 30,
                         "image_url": "testimage2",
                         "name": vm.selectedProducts[1].name,
@@ -99,6 +99,33 @@ angular.module('ProductBattleApp').
                         "shop_category": "Sports & Outdoors"
                     }
                 }
+            };
+          var battleJson = {
+                "user_id": "1",
+                "schedule_time" : vm.scheduleTime,
+                "title": vm.title,
+                "products_attributes": [
+                   {
+                        "product_id": vm.selectedProducts[0].id,
+                        "price": 30,
+                        "image_url": "testimage",
+                        "name": vm.selectedProducts[0].name,
+                        "description": "asdfasdfasdffsadfdsafdasdfsaasfdasdf",
+                        "details": "asdfsafdsafdafsdasdf",
+                        "url": "asdfasdffsd",
+                        "shop_category": "Sports & Outdoors"
+                    },
+                    {
+                        "product_id": vm.selectedProducts[1].id,
+                        "price": 30,
+                        "image_url": "testimage2",
+                        "name": vm.selectedProducts[1].name,
+                        "description": "asdfasdfasdffsadfdsafdasdfsaasfdasdf",
+                        "details": "asdfsafdsafdafsdasdf",
+                        "url": "asdfasdffsd",
+                        "shop_category": "Sports & Outdoors"
+                    }
+                ]
             };
 
           $http.post('http://localhost:3000/api/v1/battles', {'battle' : battleJson }).then(function(response) {
