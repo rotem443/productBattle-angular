@@ -2,7 +2,7 @@
  * Created by ADMIN on 22/01/16.
  */
 angular.module('ProductBattleApp').
-    controller('SideNavController', function ($scope, $timeout, $mdSidenav, $log, $rootScope, $http, $mdToast) {
+    controller('SideNavController', function ($scope, $timeout, $mdSidenav, $log, $rootScope, $http, $mdToast, dataFactory) {
 
         var vm = this;
 
@@ -27,9 +27,8 @@ angular.module('ProductBattleApp').
                 "shop_category": "Sports & Outdoors"
             };
 
-            $http.post('http://localhost:3000/api/v1/products' ,  {
-                "product" : productJson
-            }).then(function(response) {
+            dataFactory.insertProduct(productJson).
+                then(function(response) {
 
                 if (response.status != 201) {
                     $mdToast.show(
@@ -128,24 +127,25 @@ angular.module('ProductBattleApp').
                 ]
             };
 
-          $http.post('http://localhost:3000/api/v1/battles', {'battle' : battleJson }).then(function(response) {
-                if (response.status != 201 && response.status != 200) {
-                    $mdToast.show(
-                        $mdToast.simple()
-                            .content('There was an error creating the battle')
-                            .hideDelay(3000)
-                    );
-                }
-                else {
-                    $mdToast.show(
-                        $mdToast.simple()
-                            .content('The battle successfully created')
-                            .hideDelay(3000)
-                    );
-                    vm.close('left');
-                }
-            });
-        };
+            dataFactory.insertBattle(battleJson).
+                then(function(response) {
+                    if (response.status != 201 && response.status != 200) {
+                        $mdToast.show(
+                            $mdToast.simple()
+                                .content('There was an error creating the battle')
+                                .hideDelay(3000)
+                        );
+                    }
+                    else {
+                        $mdToast.show(
+                            $mdToast.simple()
+                                .content('The battle successfully created')
+                                .hideDelay(3000)
+                        );
+                        vm.close('left');
+                    }
+                });
+            };
 
         $scope.$watch('SelectedRows', function(newValue) {
            vm.title =  (newValue != undefined) ? newValue[0].name + " VS " +

@@ -1,5 +1,5 @@
 angular.module('ProductBattleApp').
-controller('TableController', ['$scope' , '$mdToast', '$rootScope','TableDataStorageFactory', '$http' , function($scope, $mdToast, $rootScope, TableDataStorageFactory, $http) {
+controller('TableController', ['$scope' , '$mdToast', '$rootScope','TableDataStorageFactory', '$http', 'dataFactory' , function($scope, $mdToast, $rootScope, TableDataStorageFactory, $http, dataFactory) {
 
     $rootScope.bItemsLoad = false;
 
@@ -78,10 +78,10 @@ controller('TableController', ['$scope' , '$mdToast', '$rootScope','TableDataSto
     });
 
     // Load the products
-    $http.get('http://localhost:3000/api/v1/products')
-            .then(function(result) {
-                $scope.productList = result.data;
+    dataFactory.getAllProducts()
+        .then(function(result) {
+            $scope.productList = result.data;
 
-                $rootScope.bItemsLoad = true;
-            });
+            $rootScope.bItemsLoad = true;
+        });
 }]);

@@ -252,8 +252,8 @@
 (function(){
     'use strict';
 
-    TableDataStorageFactory.$inject = ['$log', '$http', '$q'];
-    function TableDataStorageFactory($log, $http, $q){
+    TableDataStorageFactory.$inject = ['$log', 'dataFactory', '$q'];
+    function TableDataStorageFactory($log, dataFactory, $q){
 
         this.myTable = undefined;
 
@@ -398,17 +398,16 @@
                 return (selectedRows);
             }
 
-            $http.post('http://localhost:3000/api/v1/products/destroy-many', {
-                "delete_list" : getDeleteItems(false)
-            } ).then(function(response) {
-                if (response.status == 200)
-                {
-                    arrReturnResult.resolve(getDeleteItems(true));
-                }
-                else {
-                    arrReturnResult.resolve([-1]);
-                }
-            });
+            dataFactory.deleteProduct(getDeleteItems(false)).
+                then(function(response) {
+                    if (response.status == 200)
+                    {
+                        arrReturnResult.resolve(getDeleteItems(true));
+                    }
+                    else {
+                        arrReturnResult.resolve([-1]);
+                    }
+                });
 
             return arrReturnResult.promise;
         };
