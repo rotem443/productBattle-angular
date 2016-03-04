@@ -15,6 +15,12 @@
                 <input mdc-datetime-picker="" date="true" time="true" type="text" id="datetime"
                        placeholder="Date" min-date="date" ng-model="sideVm.scheduleTime" class=" md-input">
             </md-input-container>
+            <md-input-container>
+                <label for="btlRatio">Win Ratio</label>
+                <input type="number" id="btlRatio"
+                       ng-model="sideVm.ratio">
+            </md-input-container>
+
         </form>
         <div layout="row">
             <md-button ng-click="sideVm.sendBattle()" class="md-primary md-button">

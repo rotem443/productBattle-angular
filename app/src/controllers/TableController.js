@@ -52,7 +52,7 @@ controller('TableController', ['$scope' , '$mdToast', '$rootScope','TableDataSto
                 name: args.object.product.name,
                 price: args.object.product.price,
                 url: args.object.product.url,
-                image_url: args.object.product.image_url,
+                images: args.object.product.images,
                 details: args.object.product.details,
                 description: args.object.product.description,
                 fake_votes: args.object.product.fake_votes

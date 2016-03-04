@@ -22,7 +22,7 @@
 <md-card style="margin:0px; margin-top:8px">
 <mdt-table paginated-rows="{isEnabled: true, rowsPerPageValues: [5,10,20,100]}" mdt-row="{'data': filteredItems,
                                                                                           'table-row-id-key': 'id',
-                                                                                          'column-keys': ['name', 'price', 'url', 'image_url', 'details', 'description', 'fake_votes']}"
+                                                                                          'column-keys': ['name', 'price', 'url', 'images', 'interesting_info', 'description', 'fake_votes']}"
            table-card="{visible: true, title: 'Product battle'}"
            selectable-rows="true"
            alternate-headers="'contextual'"
@@ -34,8 +34,8 @@
         <mdt-column align-rule="left">Name</mdt-column>
         <mdt-column align-rule="left">Price</mdt-column>
         <mdt-column align-rule="left">Url</mdt-column>
-        <mdt-column align-rule="left">Image Url</mdt-column>
-        <mdt-column align-rule="left">Details</mdt-column>
+        <mdt-column align-rule="left">Images</mdt-column>
+        <mdt-column align-rule="left">Interresting info</mdt-column>
         <mdt-column align-rule="left">Description</mdt-column>
         <mdt-column align-rule="left">Fake votes</mdt-column>
     </mdt-header-row>

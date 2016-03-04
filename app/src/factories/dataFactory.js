@@ -25,7 +25,10 @@ angular.module('ProductBattleApp').
 
     objData.insertBattle = function(battle) {
         return $http.post('http://localhost:3000/api/v1/battles',
-            {'battle' : battle }
+            {'battle' : battle} , {'headers' : {'Access-Token' : '1YNpnbKbhbgCMn_aKzDVzw',
+                'Client' : 'pVrjC3_61efXchLENdLoJQ',
+                'Expiry': '1488309835',
+                'Uid': 'rotem@walla.com'}}
         );
     };
 
